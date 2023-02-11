@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+        body {
+            background-color: #0f1626;
+            color: #f5f5f5;
+            text-align: center;
+            height: auto;
+            margin: auto;
+
+        }
+
+        input {
+            background-color: #ff533d;
+            color: #0f1626;
+            max-width: 300px;
+            min-width: 100px;
+            width: 50%;
+            height: 50px;
+            border-radius: 9px;
+            font-size: large;
+        }
+
+        textarea {
+            border: 0;
+            background-image: none;
+            border-radius: 9px;
+            font-size: large;
+            margin: auto;
+        }
+
+        select {
+            height: 50%;
+            width: fit-content;
+            font-size: large;
+        }
+
+        fieldset {
+            padding: 10%;
+            border: none;
+            border-radius: 25px;
+            margin: 0 30px;
+            background-color: hsla(0, 0%, 47%, 0.3);
+        }
+
+        div {
+            margin: 15% 20%;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+    <title>QR Code Generator</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function genQr() {
+            var gApi = "https://chart.googleapis.com/chart?CHF=BG,S,66432100&cht=qr&chs="
+            var myimg = document.getElementById("img");
+            var mytext = document.getElementById("qrtext").value;
+            var mysize = document.getElementById("size").value;
+            if (mytext != "" && mysize == "100") {
+                myimg.src = gApi + "100x100" + "&chl=" + mytext;
+                //https://chart.googleapis.com/chart?cht=qr&chs=100x100&chl=yo
+            }
+            else if (mytext != "" && mysize == "150") {
+                myimg.src = gApi + "150x150" + "&chl=" + mytext;
+
+            }
+            else if (mytext != "" && mysize == "200") {
+                myimg.src = gApi + "200x200" + "&chl=" + mytext;
+
+            }
+            else if (mytext != "" && mysize == "250") {
+                myimg.src = gApi + "250x250" + "&chl=" + mytext;
+
+            }
+            else if (mytext != "" && mysize == "300") {
+                myimg.src = gApi + "300x300" + "&chl=" + mytext;
+            }
+
+        }
+    </script>
+
+    <main>
+        <div>
+            <h2>QR Code Generator</h2>
+            <fieldset>
+                <label><img src="" id="img"></label>
+                <label>Select Qr Code Size: <select id="size">
+                        <option value="100">100 x 100</option>
+                        <option value="150">150 x 150</option>
+                        <option value="200">200 x 200</option>
+                        <option value="250" selected>250 x 250</option>
+                        <option value="300">100 x 300</option>
+                    </select>
+                </label>
+                <br><br>
+                <textarea placeholder="Enter Your Text" rows="10" cols="25" id="qrtext"></textarea>
+                <br><br>
+                <input type="submit" value="Generate" onclick="genQr()">
+                <br><br>
+            </fieldset>
+        </div>
+    </main>
+
+</body>
+
+</html>
