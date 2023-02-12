@@ -6,57 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
         body {
-            background-color: #0f1626;
+            background: linear-gradient(90deg,#0f1626,#567189,#567189,#0f1626);
             color: #f5f5f5;
             text-align: center;
-            height: auto;
-            margin: auto;
+            margin: 0px;
+            padding: 0;
+            width:100%;
+            font-family: Tahoma;
 
         }
-
+        hr,h1{
+            width: 30vw;
+        }
+        hr
+        {
+            margin-top: 0px;
+        }
+        h1
+        {
+            color: #0f1626;
+        }
+        main
+        {
+            width: 80vw;
+            height: 45vh;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            padding: 50px;
+        }
         input {
             background-color: #ff533d;
             color: #0f1626;
-            max-width: 300px;
-            min-width: 100px;
-            width: 50%;
-            height: 50px;
             border-radius: 9px;
             font-size: large;
         }
-
-        textarea {
-            border: 0;
-            background-image: none;
+        textarea
+        {
+            width: 20vw;
+            height: 10vh;
+            margin: 15px auto;
             border-radius: 9px;
-            font-size: large;
-            margin: auto;
+            font-size: small;
         }
+        .belhead
+        {
+            background-color: rgba(0, 0, 0, 0.5);
+            border:none;
+            width: 30vw;
+            margin: 10px auto;
+            border-radius: 9px;
+            padding: 30px;
 
-        select {
-            height: 50%;
-            width: fit-content;
-            font-size: large;
         }
-
-        fieldset {
-            padding: 10%;
+        .heading
+        {
             border: none;
-            border-radius: 25px;
-            margin: 0 30px;
-            background-color: hsla(0, 0%, 47%, 0.3);
         }
+        p
+            {
+                font-size: 10px;
+            }
 
-        div {
-            margin: 15% 20%;
-            align-items: center;
-        }
-
-        label {
-            display: block;
-        }
     </style>
     <title>QR Code Generator</title>
 </head>
@@ -92,25 +104,28 @@
     </script>
 
     <main>
-        <div>
+        <fieldset class="heading">
             <h2>QR Code Generator</h2>
-            <fieldset>
+            <hr>
+        </fieldset>
+            <fieldset class="belhead">
                 <label><img src="" id="img"></label>
-                <label>Select Qr Code Size: <select id="size">
+                <br>
+                <label>Select Size: <select id="size">
                         <option value="100">100 x 100</option>
                         <option value="150">150 x 150</option>
                         <option value="200">200 x 200</option>
                         <option value="250" selected>250 x 250</option>
                         <option value="300">100 x 300</option>
                     </select>
+                    <p>Warning: 100x100 recommended for Smart Phone Users</p>
                 </label>
                 <br><br>
-                <textarea placeholder="Enter Your Text" rows="10" cols="25" id="qrtext"></textarea>
+                <textarea placeholder="Enter Text/Link To Convert into QR Code..." rows="10" cols="25" id="qrtext"></textarea>
                 <br><br>
                 <input type="submit" value="Generate" onclick="genQr()">
                 <br><br>
             </fieldset>
-        </div>
     </main>
 
 </body>
